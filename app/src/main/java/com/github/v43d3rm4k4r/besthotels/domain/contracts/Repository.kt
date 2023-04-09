@@ -5,6 +5,7 @@ import java.util.*
 /**
  * Repository contract implemented by data layer.
  */
+// TODO: remove?
 interface Repository<T> {
 
     suspend fun getItems(): List<T>

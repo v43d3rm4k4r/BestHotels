@@ -39,7 +39,7 @@ import com.github.v43d3rm4k4r.besthotels.databinding.ActivityMainBinding
 - Navigation Component + SafeArgs
 - Modules for Resources & Utils
 - Dagger
-- Room
+- Retrofit
 - Unit Testing
 - Animations
 - Network Connectivity Observer

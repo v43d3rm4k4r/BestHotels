@@ -9,4 +9,9 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="hotel_name_placeholder">Апарт-отель Sova Yard View Blue</string>
+    <string name="distance_from_center_placeholder">%1%s km from the city center</string>
+
+    <string name="no_hotels_found">No hotels found.</string>
 </resources>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_item_hotel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/hotel_photo_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/layout_background"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/placeholder" />
+
+    <View
+        android:id="@+id/dark_stripe_view"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:alpha="0.5"
+        android:background="@color/black"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/hotel_photo_image_view"
+        app:layout_constraintStart_toStartOf="@+id/hotel_photo_image_view"
+        app:layout_constraintTop_toTopOf="@+id/hotel_photo_image_view" />
+
+    <TextView
+        android:id="@+id/hotel_name_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="@string/hotel_name_placeholder"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/dark_stripe_view"
+        app:layout_constraintStart_toStartOf="@id/dark_stripe_view"
+        app:layout_constraintTop_toTopOf="@id/dark_stripe_view" />
+
+    <TextView
+        android:id="@+id/distance_from_center_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="@string/distance_from_center_placeholder"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/dark_stripe_view"
+        app:layout_constraintStart_toStartOf="@id/dark_stripe_view"
+        app:layout_constraintTop_toBottomOf="@id/hotel_name_text_view" />
+
+    <ImageView
+        android:id="@+id/star_1_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:layout_constraintBottom_toBottomOf="@id/dark_stripe_view"
+        app:layout_constraintEnd_toStartOf="@id/star_2_image_view"
+        app:layout_constraintStart_toStartOf="@id/dark_stripe_view"
+        app:layout_constraintTop_toBottomOf="@id/distance_from_center_text_view"
+        app:srcCompat="@android:drawable/star_on" />
+
+    <ImageView
+        android:id="@+id/star_2_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:layout_constraintBottom_toBottomOf="@id/dark_stripe_view"
+        app:layout_constraintStart_toEndOf="@id/star_1_image_view"
+        app:layout_constraintTop_toBottomOf="@id/distance_from_center_text_view"
+        app:srcCompat="@android:drawable/star_on" />
+
+    <ImageView
+        android:id="@+id/star_3_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:layout_constraintBottom_toBottomOf="@id/dark_stripe_view"
+        app:layout_constraintStart_toEndOf="@id/star_2_image_view"
+        app:layout_constraintTop_toBottomOf="@id/distance_from_center_text_view"
+        app:srcCompat="@android:drawable/star_on" />
+
+    <ImageView
+        android:id="@+id/star_4_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:layout_constraintBottom_toBottomOf="@id/dark_stripe_view"
+        app:layout_constraintStart_toEndOf="@id/star_3_image_view"
+        app:layout_constraintTop_toBottomOf="@id/distance_from_center_text_view"
+        app:srcCompat="@android:drawable/star_on" />
+
+    <ImageView
+        android:id="@+id/star_5_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:layout_constraintBottom_toBottomOf="@id/dark_stripe_view"
+        app:layout_constraintStart_toEndOf="@id/star_4_image_view"
+        app:layout_constraintTop_toBottomOf="@id/distance_from_center_text_view"
+        app:srcCompat="@android:drawable/star_on" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/stars_group"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="g"
+        app:constraint_referenced_ids="star_1_image_view, star_2_image_view, star_3_image_view, star_4_image_view, star_5_image_view" />
+
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/important_image_view"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginBottom="8dp"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintEnd_toStartOf="@id/note_text_view"-->
+    <!--        app:srcCompat="@android:drawable/star_big_on"-->
+    <!--        tools:visibility="visible"/>-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/note_text_view"-->
+    <!--        android:textSize="16sp"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:text="@string/note_text_placeholder"-->
+    <!--        app:layout_constraintStart_toEndOf="@id/important_image_view"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/note_date_text_view" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/note_date_text_view"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:layout_marginBottom="8dp"-->
+    <!--        android:text="@string/note_date_placeholder"-->
+    <!--        android:textAlignment="textEnd"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/note_text_view"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.0"-->
+    <!--        app:layout_constraintStart_toEndOf="@id/important_image_view"-->
+    <!--        app:layout_constraintVertical_bias="1.0"-->
+    <!--        tools:text="@string/note_date_placeholder" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

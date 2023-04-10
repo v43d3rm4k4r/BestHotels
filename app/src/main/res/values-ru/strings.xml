@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Лучшие Отели</string>
+    <string name="hotel_name_placeholder">Апарт-отель Sova Yard View Blue</string>
+    <string name="distance_from_center_placeholder">%1%s км от центра города</string>
+
+    <string name="no_hotels_found">Отели не найдены.</string>
+</resources>

@@ -9,15 +9,16 @@
         android:id="@+id/FirstFragment"
         android:name="com.github.v43d3rm4k4r.besthotels.presentation.screens.hotels.HotelsFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_hotels">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.github.v43d3rm4k4r.besthotels.presentation.screens.hoteldetails.SecondFragment"
+        android:name="com.github.v43d3rm4k4r.besthotels.presentation.screens.hoteldetails.HotelDetailsFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 

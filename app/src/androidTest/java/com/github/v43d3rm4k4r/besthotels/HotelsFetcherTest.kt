@@ -15,9 +15,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
-/**
- * TODO: Test Repository
- */
 @RunWith(AndroidJUnit4::class)
 class HotelsFetcherTest {
 
@@ -37,12 +34,11 @@ class HotelsFetcherTest {
     }
 
     @Test
-    @Throws(Exception::class)
-    fun getHotelsData() = runBlocking {
+    fun getHotelsData(): Unit = runBlocking {
 
         val hotelsList = hotelsFetcher.fetchHotelsList()
         hotelsList ?: error("hotelsList is null")
-        assertEquals(true, hotelsList.size == HOTELS_COUNT)
+        assertEquals("Expected 7 hotels, but got ${hotelsList.size}" , HOTELS_COUNT, hotelsList.size)
 
         val detailedHotelsList = hotelsList.map {
             hotelsFetcher.fetchHotelDetails(it.id).apply {
@@ -52,7 +48,7 @@ class HotelsFetcherTest {
 
         // HotelDetailed.image could be blank, so testing the one with this field available:
         val image = hotelsFetcher.fetchHotelImageBytes(detailedHotelsList[0].imageName)
-        assertNotEquals("Hotel image is null", null, image)
+        image ?: error("Hotel image is null")
     }
 
     private companion object {

@@ -40,6 +40,7 @@ android {
 
 dependencies {
 
+    implementation project(":kotlin-utils")
     implementation project(":android-utils")
 
     implementation 'androidx.core:core-ktx:1.7.0'

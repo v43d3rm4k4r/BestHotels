@@ -13,7 +13,7 @@ annotation class AppScope
 
 @Singleton
 @AppScope
-@Component
+@Component(modules = [RemoteModule::class])
 interface AppComponent {
 
     @Component.Factory

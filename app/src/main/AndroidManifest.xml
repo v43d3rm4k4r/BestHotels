@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,18 +13,21 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.BestHotels"
+        android:name=".BestHotelsApplication"
         tools:targetApi="31">
+
         <activity
             android:name=".presentation.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.BestHotels.NoActionBar">
+            android:theme="@style/Theme.BestHotels">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
     </application>
 
 </manifest>

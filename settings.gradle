@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "BestHotels"
 include ':app'
 include ':android-utils'
+include ':kotlin-utils'

@@ -50,6 +50,6 @@ object RemoteModule {
     interface Declarations {
 
         @Binds
-        fun bindFlickrFetcher(impl: HotelsFetcherImpl): HotelsFetcher
+        fun bindHotelsFetcher(impl: HotelsFetcherImpl): HotelsFetcher
     }
 }

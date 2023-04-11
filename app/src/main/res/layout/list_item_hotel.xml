@@ -112,56 +112,6 @@
         android:id="@+id/stars_group"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:visibility="g"
         app:constraint_referenced_ids="star_1_image_view, star_2_image_view, star_3_image_view, star_4_image_view, star_5_image_view" />
-
-
-    <!--    <ImageView-->
-    <!--        android:id="@+id/important_image_view"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="8dp"-->
-    <!--        android:layout_marginStart="8dp"-->
-    <!--        android:layout_marginBottom="8dp"-->
-    <!--        android:visibility="gone"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintEnd_toStartOf="@id/note_text_view"-->
-    <!--        app:srcCompat="@android:drawable/star_big_on"-->
-    <!--        tools:visibility="visible"/>-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/note_text_view"-->
-    <!--        android:textSize="16sp"-->
-    <!--        android:textColor="@color/black"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="8dp"-->
-    <!--        android:layout_marginTop="16dp"-->
-    <!--        android:layout_marginEnd="8dp"-->
-    <!--        android:text="@string/note_text_placeholder"-->
-    <!--        app:layout_constraintStart_toEndOf="@id/important_image_view"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintBottom_toTopOf="@id/note_date_text_view" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/note_date_text_view"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="8dp"-->
-    <!--        android:layout_marginTop="8dp"-->
-    <!--        android:layout_marginEnd="8dp"-->
-    <!--        android:layout_marginBottom="8dp"-->
-    <!--        android:text="@string/note_date_placeholder"-->
-    <!--        android:textAlignment="textEnd"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/note_text_view"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.0"-->
-    <!--        app:layout_constraintStart_toEndOf="@id/important_image_view"-->
-    <!--        app:layout_constraintVertical_bias="1.0"-->
-    <!--        tools:text="@string/note_date_placeholder" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

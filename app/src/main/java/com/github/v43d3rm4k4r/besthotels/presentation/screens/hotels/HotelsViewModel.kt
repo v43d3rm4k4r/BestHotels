@@ -1,26 +1,43 @@
 package com.github.v43d3rm4k4r.besthotels.presentation.screens.hotels
 
-import androidx.lifecycle.ViewModel
-import com.github.v43d3rm4k4r.besthotels.data.models.Hotel
 import com.github.v43d3rm4k4r.besthotels.data.models.HotelDetailed
-import com.github.v43d3rm4k4r.besthotels.domain.contracts.Repository
 import com.github.v43d3rm4k4r.besthotels.domain.usecases.hotels.FetchHotelsUseCase
-import com.github.v43d3rm4k4r.besthotels.domain.usecases.hotels.OpenHotelDetailsUseCase
 import com.github.v43d3rm4k4r.besthotels.domain.usecases.hotels.SearchHotelUseCase
 import com.github.v43d3rm4k4r.besthotels.domain.usecases.hotels.SortHotelsUseCase
+import com.github.v43d3rm4k4r.besthotels.presentation.BaseViewModel
+import com.github.v43d3rm4k4r.besthotels.presentation.screens.hotels.HotelsAction.ShowHotelDetails
+import com.github.v43d3rm4k4r.besthotels.presentation.screens.hotels.HotelsEvent.HotelClicked
 import javax.inject.Inject
 
 class HotelsViewModel @Inject constructor(
     private val fetchHotelsUseCase: FetchHotelsUseCase,
-    private val openHotelDetailsUseCase: OpenHotelDetailsUseCase,
     private val searchHotelUseCase: SearchHotelUseCase,
     private val sortHotelsUseCase: SortHotelsUseCase,
-) : ViewModel() {
+) : BaseViewModel<HotelsState, HotelsAction, HotelsEvent>() {
 
     //val hotels = fetchHotelsUseCase().state
 
-    fun handleOnHotelClick(hotel: HotelDetailed) {
-        // TODO: navigate to HotelDetailsFragment OR send event to Fragment about this (see Melnik)
-
+    init {
+        // TODO: DELETE THIS AFTER RECYCLER TESTS
+        viewState = HotelsState(listOf(
+            HotelDetailed(
+            id = 123,
+            address = "Some address",
+            name = "Some name",
+            stars = 5,
+            distance = 5.0,
+            imageName = "Image name",
+            suitesAvailability = "5:10",
+            latitude = 12.4,
+            longitude = 45.5)
+        ), isLoaded = true)
     }
+
+    override fun obtainEvent(viewEvent: HotelsEvent) =
+        when (viewEvent) {
+            is HotelClicked -> {
+                // TODO: send action
+                viewAction = ShowHotelDetails(viewEvent.hotel)
+            }
+        }
 }

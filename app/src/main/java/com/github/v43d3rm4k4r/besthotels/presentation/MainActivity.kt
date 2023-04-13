@@ -37,7 +37,7 @@ import com.github.v43d3rm4k4r.besthotels.databinding.ActivityMainBinding
 
 
  TODO: This application using:
-- Clean Architecture + MVVM
+- Clean Architecture + MVVM (MVI?)
 - Coroutines + Flow
 - Navigation Component + SafeArgs
 - Modules for Resources & Utils

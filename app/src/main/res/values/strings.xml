@@ -4,7 +4,8 @@
     <!-- Strings used for fragments for navigation -->
 
     <string name="hotel_name_placeholder">Апарт-отель Sova Yard View Blue</string>
-    <string name="distance_from_center_placeholder">%1%s km from the city center</string>
+    <string name="distance_from_center_placeholder">5.5 km from the city center</string>
+    <string name="distance_from_center">%1$.2f km from the city center</string>
 
     <string name="no_hotels_found">No hotels found.</string>
 </resources>

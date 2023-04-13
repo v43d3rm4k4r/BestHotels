@@ -30,11 +30,9 @@ class HotelsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, @LayoutRes viewType: Int): HotelHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(viewType, parent, false) // FIXME: Crash with LinearLayoutManager in xml
-
-        view.setOnClickListener(this)
-
-        val binding = ListItemHotelBinding.bind(view)
+        val binding = ListItemHotelBinding.inflate(inflater, parent, false).apply {
+            root.setOnClickListener(this@HotelsAdapter)
+        }
         return HotelHolder(binding)
     }
 

@@ -19,18 +19,20 @@ class HotelsViewModel @Inject constructor(
 
     init {
         // TODO: DELETE THIS AFTER RECYCLER TESTS
-        viewState = HotelsState(listOf(
-            HotelDetailed(
-            id = 123,
-            address = "Some address",
-            name = "Some name",
-            stars = 5,
-            distance = 5.0,
-            imageName = "Image name",
-            suitesAvailability = "5:10",
-            latitude = 12.4,
-            longitude = 45.5)
-        ), isLoaded = true)
+        viewState = HotelsState(
+            List(5) {
+                HotelDetailed(
+                    id = 123,
+                    address = "Some address",
+                    name = "Some name",
+                    stars = 5,
+                    distance = 5.0,
+                    imageName = "Image name",
+                    suitesAvailability = "5:10",
+                    latitude = 12.4,
+                    longitude = 45.5
+                )
+            }, isLoaded = true)
     }
 
     override fun obtainEvent(viewEvent: HotelsEvent) =

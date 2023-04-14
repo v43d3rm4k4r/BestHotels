@@ -1,14 +1,14 @@
 package com.github.v43d3rm4k4r.besthotels.presentation.screens.hotels
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
-import android.widget.LinearLayout
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle.State.STARTED
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
+import com.github.v43d3rm4k4r.besthotels.R
 import com.github.v43d3rm4k4r.besthotels.appComponent
 import com.github.v43d3rm4k4r.besthotels.data.models.HotelDetailed
 import com.github.v43d3rm4k4r.besthotels.databinding.FragmentHotelsBinding
@@ -37,19 +37,31 @@ class HotelsFragment : BaseFragment<FragmentHotelsBinding, HotelsViewModel, Hote
         setupUI()
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(STARTED) {
-                viewModel.viewActions().collect { action -> action?.let { bindViewAction(it) } }
+                viewModel.viewStates().collect { state -> state?.let { bindViewState(it) } }
             }
         }
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(STARTED) {
-                viewModel.viewStates().collect { state -> state?.let { bindViewState(it) } }
+                viewModel.viewActions().collect { action -> action?.let { bindViewAction(it) } }
             }
         }
     }
 
     private fun bindViewState(viewState: HotelsState) {
-        recyclerAdapter.submitList(viewState.hotels)
-        binding.progressBar.isVisible = !viewState.isLoaded
+        with(binding) {
+            if (viewState.failedToLoad) {
+                progressBar.isVisible = false
+                hotelsRecyclerView.isVisible = false
+                bottomTextView.isVisible = true
+                bottomTextView.text = getString(R.string.hotels_failed_to_load)
+            } else {
+                if (viewState.isLoaded) {
+                    recyclerAdapter.submitList(viewState.hotels)
+                    binding.bottomTextView.isVisible = false
+                }
+                binding.progressBar.isVisible = !viewState.isLoaded
+            }
+        }
     }
 
     private fun bindViewAction(viewAction: HotelsAction) =
@@ -60,20 +72,22 @@ class HotelsFragment : BaseFragment<FragmentHotelsBinding, HotelsViewModel, Hote
     private fun setupUI() {
         with(binding.hotelsRecyclerView) {
             adapter = this@HotelsFragment.recyclerAdapter
-
-            //val callback = SimpleItemTouchHelperCallback(requireContext().resources, this@CrimeListFragment.adapter)
-            //val touchHelper = ItemTouchHelper(callback)
-            //touchHelper.attachToRecyclerView(this)
-
-            //val dividerItemDecoration = DividerItemDecoration(requireContext(), LinearLayout.VERTICAL)
-            //addItemDecoration(dividerItemDecoration)
-
-            // TODO: add itemAnimator
         }
     }
 
     private fun navigateToHotelDetails(hotel: HotelDetailed) {
         val direction = HotelsFragmentDirections.actionHotelsFragmentToHotelDetailsFragment(hotel)
         findNavController().navigate(direction) // TODO: add anim options
+    }
+
+    // TODO: set menu provider
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        return when (item.itemId) {
+            R.id.action_settings -> true
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

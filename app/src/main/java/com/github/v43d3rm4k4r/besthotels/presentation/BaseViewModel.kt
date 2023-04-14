@@ -7,13 +7,13 @@ import kotlinx.coroutines.flow.StateFlow
 /**
  * An MVI base view model class.
  *
- * [Event]s come from the screen (by calling [obtainEvent]) and creates a [State] either [Action].
+ * [Event]s come from the view (by calling [obtainEvent]) and ViewModel creates a [State] either [Action].
  * [Action] is some kind of UI activity that the fragment should perform.
  * [State] displays the current state of the UI.
  */
 abstract class BaseViewModel<State, Action, Event> : ViewModel() {
 
-    private val TAG = BaseViewModel::class.java.simpleName
+    protected val TAG = BaseViewModel::class.java.simpleName
 
     private val _viewStates = MutableStateFlow<State?>(null)
     fun viewStates(): StateFlow<State?> = _viewStates

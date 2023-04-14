@@ -7,5 +7,5 @@
     <string name="distance_from_center_placeholder">5.5 km from the city center</string>
     <string name="distance_from_center">%1$.2f km from the city center</string>
 
-    <string name="no_hotels_found">No hotels found.</string>
+    <string name="hotels_failed_to_load">Hotels failed to load.</string>
 </resources>

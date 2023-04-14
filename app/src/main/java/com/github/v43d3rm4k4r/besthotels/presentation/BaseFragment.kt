@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -28,14 +29,11 @@ abstract class BaseFragment<VB : ViewBinding, VM : ViewModel, VMF : ViewModelPro
     protected lateinit var viewModelFactory: VMF
     protected lateinit var viewModel: VM
 
-    //@Inject
-    //protected lateinit var navController: Provider<NavController>
-
     protected abstract fun viewModelClass(): Class<VM>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = viewModelFactory.create(viewModelClass())
+        viewModel = ViewModelProvider(this, viewModelFactory)[viewModelClass()]
     }
 
     override fun onCreateView(

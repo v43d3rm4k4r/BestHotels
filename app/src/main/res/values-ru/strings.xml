@@ -7,5 +7,5 @@
     <string name="distance_from_center">%1$.2f км от центра города</string>
     <string name="distance_from_center_placeholder">5.5 км от центра города</string>
 
-    <string name="no_hotels_found">Отели не найдены.</string>
+    <string name="hotels_failed_to_load">Ошибка при загрузке отелей.</string>
 </resources>

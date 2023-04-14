@@ -15,7 +15,6 @@ interface HotelsAPI {
     @GET("{hotel_id}.json")
     suspend fun fetchHotelDetails(@Path(value = "hotel_id", encoded = true) hotelId: String): Response<HotelDetailed>
 
-    // downloads image TODO: use Picasso? (see https://medium.com/@pypriyank/consuming-rest-api-in-android-using-retrofit-and-gson-20268aadf0eb)
     @GET("{image_name}")
     suspend fun fetchHotelImageBytes(@Path(value = "image_name", encoded = true) imageName: String): Response<ResponseBody>
 }

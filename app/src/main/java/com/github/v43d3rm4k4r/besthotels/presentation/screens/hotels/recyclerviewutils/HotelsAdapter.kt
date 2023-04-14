@@ -57,7 +57,10 @@ class HotelsAdapter(
             with(binding) {
                 root.tag = hotel
                 hotelNameTextView.text = hotel.name
-                hotelPhotoImageView.setImageDrawable(AppCompatResources.getDrawable(root.context, R.drawable.placeholder)) // TODO: DOWNLOAD IMAGE
+                if (hotel.imageBitmap == null)
+                    hotelPhotoImageView.setImageDrawable(AppCompatResources.getDrawable(root.context, R.drawable.placeholder))
+                else
+                    hotelPhotoImageView.setImageBitmap(hotel.imageBitmap)
                 distanceFromCenterTextView.text = root.context.getString(R.string.distance_from_center, 5.0) // TODO: CALCULATE DISTANCE
                 if (hotel.stars == 0)
                     starsGroup.isVisible = false

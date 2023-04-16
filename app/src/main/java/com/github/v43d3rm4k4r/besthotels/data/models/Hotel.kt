@@ -13,5 +13,5 @@ data class Hotel(
     val address: String,
     val stars: Int,
     val distance: Double,
-    @SerializedName("suites_availability") val suitesAvailability: String // contains the numbers of available rooms of the hotel, separated by a colon
+    @SerializedName("suites_availability") val suitesAvailability: String
 ) : Parcelable

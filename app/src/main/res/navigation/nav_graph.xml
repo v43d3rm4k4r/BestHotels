@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_hotel_details">
 
         <argument
-            android:name="note"
+            android:name="hotel"
             app:argType="com.github.v43d3rm4k4r.besthotels.data.models.HotelDetailed"
             app:nullable="false"/>
     </fragment>

@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Лучшие Отели</string>
-    <string name="action_settings">Настройки</string>
+
+    <string name="search">Поиск</string>
+    <string name="reset_search">Сбросить поиск</string>
+    <string name="action_sort_by_distance">Сортировать по расстоянию от центра</string>
+    <string name="action_sort_by_available_rooms">Сортировать по свободным номерам</string>
+    <string name="action_sort_by_stars">Сортировать по звёздам</string>
+
     <string name="hotel_name_placeholder">Апарт-отель Sova Yard View Blue</string>
 
-    <string name="distance_from_center">%1$.2f км от центра города</string>
-    <string name="distance_from_center_placeholder">5.5 км от центра города</string>
+    <string name="distance_from_center">%1$.1f м от центра города</string>
+    <string name="hotel_available_rooms">Доступные номера: %1$s</string>
+    <string name="hotel_no_available_rooms">Нет свободных номеров</string>
+    <string name="hotel_distance_from_center_placeholder">300 м от центра города</string>
+    <string name="hotel_address_placeholder">250 West 77th Street, Manhattan</string>
 
-    <string name="hotels_failed_to_load">Ошибка при загрузке отелей.</string>
+    <string name="hotels_failed_to_load">Ошибка при загрузке отелей</string>
+    <string name="no_hotels_found">Отели не найдены</string>
+    <string name="no_hotels_arg_found">Отелей \"%1$s\" не найдено</string>
+
+    <string name="network_lost">Сеть потеряна</string>
+    <string name="network_available">Сеть доступна</string>
+
+    <plurals name="rooms_plurals">
+        <item quantity="one">%1$d номер доступен</item>
+        <item quantity="few">%1$d номера доступно</item>
+        <item quantity="many">%1$d номеров доступно</item>
+        <item quantity="other">%1$d номеров доступно</item>
+    </plurals>
 </resources>

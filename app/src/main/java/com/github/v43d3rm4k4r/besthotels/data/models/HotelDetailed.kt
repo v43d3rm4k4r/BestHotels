@@ -15,7 +15,7 @@ data class HotelDetailed(
     val stars: Int,
     val distance: Double,
     @SerializedName("image") val imageName: String?,
-    @SerializedName("suites_availability") val suitesAvailability: String, // contains the numbers of available rooms of the hotel, separated by a colon
+    @SerializedName("suites_availability") val suitesAvailability: String,
     @SerializedName("lat") val latitude: Double,
     @SerializedName("lon") val longitude: Double,
     var imageBitmap: Bitmap?

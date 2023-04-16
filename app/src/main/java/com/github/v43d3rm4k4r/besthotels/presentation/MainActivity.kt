@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.NavHost
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.github.v43d3rm4k4r.besthotels.R
 import com.github.v43d3rm4k4r.besthotels.databinding.ActivityMainBinding
@@ -37,31 +38,13 @@ import com.github.v43d3rm4k4r.besthotels.databinding.ActivityMainBinding
 
 
  TODO: This application using:
-- Clean Architecture + MVVM (MVI?)
+- Clean Architecture + MVI
 - Coroutines + Flow
 - Navigation Component + SafeArgs
-- Modules for Resources & Utils
 - Dagger
 - Retrofit
-- Unit Testing
-- Animations
-- Network Connectivity Observer
-- lottie?
-
-
- TODO: Additionally Added ?:
-- SearchView
-
-HotelsViewModelUseCases:
-TODO: OpenHotelDetailsUseCase
-TODO: SortHotelsUseCase (with enum)
-TODO: SearchHotelUseCase ?
-
-HotelDetailsViewModelUseCase
-TODO: ShowImageDetailsUseCase ?
-
-
- Enjoy :)
+- Unit & IntegrationTesting
+- Network Connectivity Observing
  */
 
 class MainActivity : AppCompatActivity() {
@@ -73,10 +56,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         val navHost = supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHost
         navController = navHost.navController
         NavigationUI.setupActionBarWithNavController(this, navController)
 
+        navController.currentDestination?.label = "\uD83D\uDD0D$ Some Text"
 //        val navController = findNavController(R.id.fragmentContainer)
 //        appBarConfiguration = AppBarConfiguration(navController.graph)
 //        setupActionBarWithNavController(navController, appBarConfiguration)

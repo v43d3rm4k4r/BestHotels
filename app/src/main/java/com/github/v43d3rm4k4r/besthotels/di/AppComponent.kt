@@ -28,5 +28,5 @@ interface AppComponent {
 
     // TODO: MB split into different subcomponents
     fun inject(to: HotelsFragment)
-    fun inject(to: HotelDetailsFragment)
+    fun inject(to: HotelDetailsFragment) // TODO: DELETE
 }

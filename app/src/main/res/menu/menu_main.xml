@@ -1,10 +1,36 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.github.v43d3rm4k4r.besthotels.presentation.MainActivity">
+
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:id="@+id/menu_item_search"
+        android:title="@string/search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_reset_search"
+        android:orderInCategory="0"
+        android:title="@string/reset_search"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_sort_by_distance"
+        android:orderInCategory="1"
+        android:title="@string/action_sort_by_distance"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_sort_by_available_rooms"
+        android:orderInCategory="2"
+        android:title="@string/action_sort_by_available_rooms"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_sort_by_stars"
+        android:orderInCategory="3"
+        android:title="@string/action_sort_by_stars"
         app:showAsAction="never" />
 </menu>

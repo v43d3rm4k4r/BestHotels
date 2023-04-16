@@ -1,11 +1,33 @@
 <resources>
     <string name="app_name">BestHotels</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
+
+    <string name="search">Search</string>
+    <string name="reset_search">Reset search</string>
+    <string name="action_sort_by_distance">Sort by distance from center</string>
+    <string name="action_sort_by_available_rooms">Sort by available rooms</string>
+    <string name="action_sort_by_stars">Sort by stars</string>
 
     <string name="hotel_name_placeholder">Апарт-отель Sova Yard View Blue</string>
-    <string name="distance_from_center_placeholder">5.5 km from the city center</string>
-    <string name="distance_from_center">%1$.2f km from the city center</string>
+    <string name="hotel_distance_from_center_placeholder">300 m from the city center</string>
+    <string name="hotel_address_placeholder">250 West 77th Street, Manhattan</string>
 
-    <string name="hotels_failed_to_load">Hotels failed to load.</string>
+    <string name="hotel_available_rooms">Available rooms: %1$s</string>
+    <string name="hotel_no_available_rooms">No available rooms</string>
+    <string name="distance_from_center">%1$.1f m from the city center</string>
+
+    <string name="hotels_failed_to_load">Hotels failed to load</string>
+    <string name="no_hotels_found">No hotels found</string>
+    <string name="no_hotels_arg_found">No hotels \"%1$s\" found</string>
+
+    <string name="network_lost">Network is lost</string>
+    <string name="network_available">Network is available</string>
+
+    <plurals name="rooms_plurals">
+        <item quantity="zero">%1$d rooms available</item>
+        <item quantity="one">%1$d room available</item>
+        <item quantity="two">%1$d rooms available</item>
+        <item quantity="few">%1$d rooms available</item>
+        <item quantity="many">%1$d rooms available</item>
+        <item quantity="other">%1$d rooms available</item>
+    </plurals>
 </resources>

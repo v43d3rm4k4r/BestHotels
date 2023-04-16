@@ -1,2 +1,2 @@
 # BestHotels
-Test task for the CleverPumpkin company.
+Test task for the X company.

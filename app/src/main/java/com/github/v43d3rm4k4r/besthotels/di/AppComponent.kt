@@ -21,12 +21,5 @@ interface AppComponent {
         fun create(@BindsInstance context: Context): AppComponent
     }
 
-    // TODO: Component for each fragment?
-    //fun activityComponent(): ActivityComponent
-
-    //fun inject(to: BestHotelsApplication) // no need for this
-
-    // TODO: MB split into different subcomponents
     fun inject(to: HotelsFragment)
-    fun inject(to: HotelDetailsFragment) // TODO: DELETE
 }

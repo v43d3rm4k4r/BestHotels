@@ -13,7 +13,9 @@
 
     <string name="hotel_available_rooms">Available rooms: %1$s</string>
     <string name="hotel_no_available_rooms">No available rooms</string>
-    <string name="distance_from_center">%1$.1f m from the city center</string>
+    <string name="hotel_distance_from_center">%1$.1f m from the city center</string>
+    <string name="hotel_latitude">Latitude: %1$.14f</string>
+    <string name="hotel_longitude">Longitude: %1$.14f</string>
 
     <string name="hotels_failed_to_load">Hotels failed to load</string>
     <string name="no_hotels_found">No hotels found</string>

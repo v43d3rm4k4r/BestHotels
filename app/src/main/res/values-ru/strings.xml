@@ -10,9 +10,12 @@
 
     <string name="hotel_name_placeholder">Апарт-отель Sova Yard View Blue</string>
 
-    <string name="distance_from_center">%1$.1f м от центра города</string>
+    <string name="hotel_distance_from_center">%1$.1f м от центра города</string>
     <string name="hotel_available_rooms">Доступные номера: %1$s</string>
     <string name="hotel_no_available_rooms">Нет свободных номеров</string>
+    <string name="hotel_latitude">Ширина: %1$.14f</string>
+    <string name="hotel_longitude">Долгота: %1$.14f</string>
+
     <string name="hotel_distance_from_center_placeholder">300 м от центра города</string>
     <string name="hotel_address_placeholder">250 West 77th Street, Manhattan</string>
 

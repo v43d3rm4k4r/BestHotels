@@ -1,10 +1,8 @@
 package com.github.v43d3rm4k4r.besthotels.presentation.screens.hotels.recyclerviewutils
 
 import android.graphics.Bitmap
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.appcompat.content.res.AppCompatResources
@@ -12,7 +10,6 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.github.v43d3rm4k4r.besthotels.R
 import com.github.v43d3rm4k4r.besthotels.R.*
 import com.github.v43d3rm4k4r.besthotels.data.models.HotelDetailed
 import com.github.v43d3rm4k4r.besthotels.databinding.ListItemHotelBinding
@@ -57,7 +54,7 @@ class HotelsAdapter(
                     )
                     hotelPhotoImageView.setImageBitmap(resizedBmp)
                 }
-                distanceFromCenterTextView.text = root.context.getString(string.distance_from_center, hotel.distance)
+                distanceFromCenterTextView.text = root.context.getString(string.hotel_distance_from_center, hotel.distance)
                 resolveStarsVisibility(hotel)
                 val roomsAvailable = hotel.suitesAvailability.split(':').size
                 roomsAvailableTextView.text = root.context.resources.getQuantityString(plurals.rooms_plurals, roomsAvailable, roomsAvailable)

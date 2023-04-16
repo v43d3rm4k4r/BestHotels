@@ -33,7 +33,7 @@ class HotelDetailsFragment : BaseFragment<FragmentHotelDetailsBinding>(
                 )
                 hotelPhotoImageView.setImageBitmap(resizedBmp)
             }
-            distanceFromCenterTextView.text = getString(R.string.distance_from_center, hotel.distance)
+            distanceFromCenterTextView.text = getString(R.string.hotel_distance_from_center, hotel.distance)
             val availableRooms = if (!hotel.suitesAvailability.contains(':'))
                     hotel.suitesAvailability
                 else
@@ -42,6 +42,8 @@ class HotelDetailsFragment : BaseFragment<FragmentHotelDetailsBinding>(
                     getString(R.string.hotel_no_available_rooms)
                 else
                     getString(R.string.hotel_available_rooms, availableRooms)
+            latitudeTextView.text = getString(R.string.hotel_latitude, hotel.latitude)
+            longitudeTextView.text = getString(R.string.hotel_longitude, hotel.longitude)
         }
 
     private fun resolveStarsVisibility(hotel: HotelDetailed) {

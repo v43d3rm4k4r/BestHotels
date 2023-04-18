@@ -7,6 +7,7 @@ import androidx.lifecycle.Lifecycle.State.STARTED
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.bignerdranch.android.androidutils.closeKeyboard
 import com.bignerdranch.android.androidutils.showSnackbar
 import com.github.v43d3rm4k4r.androidutils.network.ConnectivityObserver
@@ -41,12 +42,12 @@ class HotelsFragment : BaseFragmentVM<FragmentHotelsBinding, HotelsViewModel, Ho
         setupUI()
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(STARTED) {
-                viewModel.viewStates().collect { state -> state?.let { bindViewState(it) } }
+                viewModel.viewState.collect(::bindViewState)
             }
         }
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(STARTED) {
-                viewModel.viewActions().collect { action -> action?.let { bindViewAction(it) } }
+                viewModel.viewActions.collect(::bindViewAction)
             }
         }
     }
@@ -99,7 +100,7 @@ class HotelsFragment : BaseFragmentVM<FragmentHotelsBinding, HotelsViewModel, Ho
 
     private fun navigateToHotelDetails(hotel: HotelDetailed) {
         val direction = HotelsFragmentDirections.actionHotelsFragmentToHotelDetailsFragment(hotel, hotel.name)
-        findNavController().navigate(direction) // TODO: add anim options
+        findNavController().navigate(direction)
     }
 
     private fun showNetworkStatus(status: ConnectivityObserver.Status) =

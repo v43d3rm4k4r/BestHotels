@@ -25,24 +25,22 @@ class HotelsViewModel @Inject constructor(
     private val searchHotelsUseCase: SearchHotelsUseCase,
     private val sortHotelsUseCase: SortHotelsUseCase,
     connectivityObserver: ConnectivityObserver,
-) : BaseViewModel<HotelsState, HotelsAction, HotelsEvent>() {
+) : BaseViewModel<HotelsState, HotelsAction, HotelsEvent>(HotelsState(failedToLoad = true)) {
 
     private var currentHotels: List<HotelDetailed>? = null
     private var isFirstAvailableStatus = true
 
     init {
-        viewState = HotelsState(failedToLoad = true)
-
         connectivityObserver.observe().onEach { status ->
             if (status == AVAILABLE) {
-                viewState = HotelsState(isLoaded = false, failedToLoad = false)
+                updateState(HotelsState(isLoaded = false, failedToLoad = false))
                 tryLoadHotels()
                 if (isFirstAvailableStatus) {
                     isFirstAvailableStatus = false
                     return@onEach
                 }
             }
-            viewAction = ShowNetworkAvailability(status)
+            sendAction(ShowNetworkAvailability(status))
         }.launchIn(viewModelScope)
     }
 
@@ -55,31 +53,35 @@ class HotelsViewModel @Inject constructor(
         }
 
     private fun handleHotelClicked(viewEvent: HotelClicked) {
-        viewAction = ShowHotelDetails(viewEvent.hotel)
+        sendAction(ShowHotelDetails(viewEvent.hotel))
     }
 
     private fun handleSearchQueryPrepared(viewEvent: SearchQueryPrepared) {
         if (currentHotels == null) return
-        viewState = HotelsState(
-            hotels = searchHotelsUseCase(currentHotels!!, viewEvent.query),
-            isLoaded = true,
-            queryText = viewEvent.query
+        updateState(
+            HotelsState(
+                hotels = searchHotelsUseCase(currentHotels!!, viewEvent.query),
+                isLoaded = true,
+                queryText = viewEvent.query
+            )
         )
     }
 
     private fun handleSortSelected(viewEvent: SortSelected) {
         if (currentHotels == null) return
-        viewState = HotelsState(
-            hotels = sortHotelsUseCase(currentHotels!!, viewEvent.sortStrategy),
-            isLoaded = true,
-            isScrollToRecyclerStartNeeded = true
+        updateState(
+            HotelsState(
+                hotels = sortHotelsUseCase(currentHotels!!, viewEvent.sortStrategy),
+                isLoaded = true,
+                isScrollToRecyclerStartNeeded = true
+            )
         )
     }
 
     private fun tryLoadHotels() {
         viewModelScope.launch(Dispatchers.IO) {
             currentHotels = fetchHotelsUseCase()
-            viewState = if (currentHotels == null) {
+            val newState = if (currentHotels == null) {
                 HotelsState(emptyList(), isLoaded = false, failedToLoad = true)
             } else {
                 HotelsState(
@@ -87,14 +89,17 @@ class HotelsViewModel @Inject constructor(
                     isLoaded = true
                 )
             }
+            updateState(newState)
         }
     }
 
     private fun handleClearSearchClicked() {
         if (currentHotels == null) return
-        viewState = HotelsState(
-            hotels = currentHotels!!,
-            isLoaded = true
+        updateState(
+            HotelsState(
+                hotels = currentHotels!!,
+                isLoaded = true
+            )
         )
     }
 }

@@ -98,7 +98,7 @@ class HotelsFragment : BaseFragmentVM<FragmentHotelsBinding, HotelsViewModel, Ho
     }
 
     private fun navigateToHotelDetails(hotel: HotelDetailed) {
-        val direction = HotelsFragmentDirections.actionHotelsFragmentToHotelDetailsFragment(hotel)
+        val direction = HotelsFragmentDirections.actionHotelsFragmentToHotelDetailsFragment(hotel, hotel.name)
         findNavController().navigate(direction) // TODO: add anim options
     }
 

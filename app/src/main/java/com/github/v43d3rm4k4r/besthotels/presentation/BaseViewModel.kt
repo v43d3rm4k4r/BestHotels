@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 /**
- * An MVI base [ViewModel] class.
+ * An MVVM base [ViewModel] class with MVI traits.
  *
  * [Event]s come from the view (by calling [obtainEvent]) and ViewModel creates a [State] either [Action].
  * [Action] is some kind of UI activity that the fragment should perform.

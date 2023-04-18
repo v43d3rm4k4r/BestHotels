@@ -24,7 +24,7 @@ class HotelsViewModel @Inject constructor(
     private val fetchHotelsUseCase: FetchHotelsUseCase,
     private val searchHotelsUseCase: SearchHotelsUseCase,
     private val sortHotelsUseCase: SortHotelsUseCase,
-    private val connectivityObserver: ConnectivityObserver,
+    connectivityObserver: ConnectivityObserver,
 ) : BaseViewModel<HotelsState, HotelsAction, HotelsEvent>() {
 
     private var currentHotels: List<HotelDetailed>? = null
@@ -94,8 +94,7 @@ class HotelsViewModel @Inject constructor(
         if (currentHotels == null) return
         viewState = HotelsState(
             hotels = currentHotels!!,
-            isLoaded = true,
-            queryText = ""
+            isLoaded = true
         )
     }
 }

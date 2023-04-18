@@ -1,8 +1,12 @@
 package com.github.v43d3rm4k4r.besthotels.presentation
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 
 /**
  * An MVI base [ViewModel] class.
@@ -23,26 +27,20 @@ abstract class BaseViewModel<State, Action, Event> : ViewModel() {
         get() = _viewState
             ?: throw UninitializedPropertyAccessException("\"viewState\" was queried before being initialized")
         set(value) {
-            /** StateFlow doesn't work with same values */
-            if (_viewStates.value == value) {
-                _viewStates.value = null
-            }
             _viewStates.value = value
         }
 
-    private val _viewActions = MutableStateFlow<Action?>(null)
-    fun viewActions(): StateFlow<Action?> = _viewActions
+    private val _viewActions = MutableSharedFlow<Action?>()
+    fun viewActions(): SharedFlow<Action?> = _viewActions
 
     private var _viewAction: Action? = null
     protected var viewAction: Action
         get() = _viewAction
             ?: throw UninitializedPropertyAccessException("\"viewAction\" was queried before being initialized")
         set(value) {
-            /** StateFlow doesn't work with same values */
-            if (_viewActions.value == value) {
-                _viewActions.value = null
+            viewModelScope.launch {
+                _viewActions.emit(value)
             }
-            _viewActions.value = value
         }
 
     abstract fun obtainEvent(viewEvent: Event)

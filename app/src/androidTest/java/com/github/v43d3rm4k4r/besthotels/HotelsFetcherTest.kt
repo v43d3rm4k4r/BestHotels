@@ -47,7 +47,7 @@ class HotelsFetcherTest {
         }
 
         // HotelDetailed.image could be blank, so testing the one with this field available:
-        val image = hotelsFetcher.fetchHotelImageBytes(detailedHotelsList[0].imageName)
+        val image = hotelsFetcher.fetchHotelImageBytes(detailedHotelsList[0].imageName!!)
         image ?: error("Hotel image is null")
     }
 

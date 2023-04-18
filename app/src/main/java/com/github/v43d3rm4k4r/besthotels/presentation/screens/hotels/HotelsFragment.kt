@@ -73,9 +73,6 @@ class HotelsFragment : BaseFragmentVM<FragmentHotelsBinding, HotelsViewModel, Ho
                         recyclerAdapter.submitList(viewState.hotels)
                         bottomTextView.isVisible = false
                     }
-                    if (viewState.queryText != null) {
-                        setQueryText(viewState.queryText)
-                    }
                     if (viewState.isScrollToRecyclerStartNeeded) {
                         nestedScrollView.smoothScrollTo(0, hotelsRecyclerView.top)
                     }
@@ -111,14 +108,6 @@ class HotelsFragment : BaseFragmentVM<FragmentHotelsBinding, HotelsViewModel, Ho
             LOST -> getString(R.string.network_lost)
             else -> null
         }?.let { showSnackbar(it) }
-
-    private fun setQueryText(text: String) {
-        if (text.isBlank()) // clear search query case
-            findNavController().currentDestination?.label = getString(R.string.app_name)
-        else {
-            findNavController().currentDestination?.label = "\uD83D\uDD0D$text" // FIXME: WORKING ONLY AT onCreate()
-        }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -1,7 +1,6 @@
 package com.github.v43d3rm4k4r.besthotels.di
 
 import android.content.Context
-import com.github.v43d3rm4k4r.besthotels.presentation.screens.hoteldetails.HotelDetailsFragment
 import com.github.v43d3rm4k4r.besthotels.presentation.screens.hotels.HotelsFragment
 import dagger.BindsInstance
 import dagger.Component
